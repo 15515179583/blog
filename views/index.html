@@ -39,7 +39,11 @@
     <% page.list.forEach(article => { %>
       <li><i><a href="/article/<%= article.id %>"><img src="<%= article.thumbnail %> "></a></i>
         <h3><a href="/article/<%= article.id %>"><%= article.title %></a></h3>
-        <p class="time"><%= article.time %></p>
+        <div class="blog_info">
+          <p class="time"><%= article.time %></p>
+          <p class="hit"><i class="iconfont icon-liulan"></i><%= article.hits %></p>
+          <p class="like"><i class="iconfont icon-like-fill"></i><%= article.like %></p>
+        </div>
         <p><%= article.content.replace(/<[^>]+>/g,'').substring(0,100) %>... </p>
       </li>
     <% }) %>

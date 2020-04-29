@@ -24,7 +24,6 @@
 .r_box li img { float: right; clear: right; width: 100%; -webkit-transition: all 0.5s; -moz-transition: all 0.5s; transition: all 0.5s; }
 .r_box li i { width: 150px; display: block; max-height: 100px; overflow: hidden; float: right; margin-left: 20px }
 .r_box li p { margin: 5px 0 0 0; line-height: 22px; overflow: hidden; text-overflow: ellipsis; -webkit-box-orient: vertical; display: -webkit-box; -webkit-line-clamp: 2;}
-.time {font-size: 10px !important; color: #8F91B0 !important; }
 .r_box li:hover img { transform: scale(1.05) }
 .r_box li:hover h3 a { color: #19585d; }
 .pagelist { text-align: center; color: #666; width: 100%; clear: both; margin: 20px 0; padding-top: 20px }
@@ -56,7 +55,7 @@ a.curPage { color: #19585d; font-weight: bold; }
 .picinfo h3 { border-bottom: #ccc 1px solid; padding: 20px 0; margin: 0 20px }
 .picinfo span { padding: 20px; display: block; color: #666 }
 .picbox ul li a:hover{ color:#19585d}
-
+/*add*/
 #container_small_tip{
     background:#efefef;
      position:relative;
@@ -83,12 +82,28 @@ a.curPage { color: #19585d; font-weight: bold; }
     padding-bottom: 0px !important;
     border-top: 2px solid #dacdcd;
  }
- .about_me .iconfont {
+ .about_me .iconlink {
     width: 30px;
     height: 30px;
     font-size: 25px;
     fill: currentColor;
  }
- .iconfont:hover {
+ .iconlink:hover {
      cursor: pointer;
  }
+ 
+.time, .hit, .like {font-size: 10px; color: #8F91B0;display: inline-block !important;}
+/*.blog_info p:nth-child(1) {margin-left: 0px !important;}*/
+.r_box .blog_info .hit{
+    color: rgb(183, 226, 240);
+}
+.r_box .blog_info .like{
+    color: rgb(238, 195, 195);
+}
+.r_box li .iconfont {
+    margin-left: 10px;
+    margin-left: 5px;
+    display: block;
+    float: left;
+    width: fit-content;
+}

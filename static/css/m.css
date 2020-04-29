@@ -19,7 +19,7 @@ header,article,#container_small_tip{ width:96%; margin:auto}
 nav{display:none}
 .mnav{ display:block}
 .l_box{ display:none}
-.r_box,.infosbox,.picsbox,.liuyan{ width:100%}
+.r_box,.infosbox,.picsbox,.liuyan{ width:100%!important;}
 .pagelist a { padding: 2px 3px;}
 .picbox ul{    width: 22%;}
 .picbox ul li i{ margin:5px}
@@ -34,7 +34,7 @@ header,article,#container_small_tip{ width:96%; margin:auto}
 nav{display:none}
 .mnav{ display:block}
 .l_box{ display:none}
-.r_box,.infosbox,.picsbox,.liuyan{ width:100%}
+.r_box,.infosbox,.picsbox,.liuyan{width:100%!important;}
 .pagelist a { padding: 2px 3px; margin:0}
 .picbox ul{    width: 22%;}
 .piclistshow ul li{ height:100px; padding:0}
@@ -43,5 +43,5 @@ nav{display:none}
 .picinfo{ display:none}
 .picshowlist,.pictxt{ display:none}
 .lmname,.view{ display:none}
-.r_box li i{ float:none; margin:0 auto 20px; width:100%; max-height:150px}
+.r_box li i{ float:none;width:100%; max-height:150px}
 }
