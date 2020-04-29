@@ -1,0 +1,18 @@
+<%- include('header.html')  -%> 
+<link href="css/about.css" rel="stylesheet">
+<article>
+  <div class="l_box">
+    <%- include('l_about.html')  -%> 
+    <%- include('l_photos.html')  -%> 
+    <%- include('l_guanzhu.html')  -%>
+  </div>
+  <div class="r_box">
+     <ul class="about">
+       <% if (!about.content) { %>
+        <h2 style="text-align: center;">内容未填写</h2>
+       <% } %>
+      <%- about.content %> 
+     </ul>
+  </div>
+</article>
+<%- include('footer.html')  -%> 

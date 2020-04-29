@@ -1,0 +1,17 @@
+@charset "gb2312";
+/*add*/
+.about p { overflow: hidden; padding-bottom: 4px; padding-top: 6px; word-wrap: break-word; }
+.about h2,.about h3,.about h4 {background-color: #EBEDEF;margin-top: 8px;padding-left: 8px;}
+.about h2 {height: 2em;font-size: 1.6em;line-height: 1.9em; text-align: center;}
+.about h3 {height: 1.8em;font-size: 1.4em;line-height: 1.7em;}
+.about h4 {height: 1.7em;font-size: 1.2em;line-height: 1.6em;}
+.about ul ,ol{padding-left: 2em;margin-top: 5px;}
+.about ul li{list-style-type: circle; padding: 0; margin: 0; overflow: visible;}
+.about ol li{list-style-type: decimal; padding: 0; margin: 0; overflow: visible;}
+.about blockquote {background-color: #eaeeee;overflow-x: scroll;}
+.about blockquote p {padding: 0 1.5em; white-space:nowrap;overflow: visible;}
+.about a{color: rgb(101, 144, 187); margin:0 0.1em; padding:0 0.2em; background-color: #f5eded;}
+.about a:hover{color: rgb(240, 191, 191); background-color: #e5eef0}
+.about blockquote p:nth-of-type(1) {padding-top: 1em;}
+.table table{width:100%; margin-top: 1.5em; text-align: center;border-collapse:collapse;line-height: 30px;}
+.table table td, .table table th {border: 3px solid #EBEBEF;}

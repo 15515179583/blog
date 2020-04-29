@@ -1,0 +1,103 @@
+<%- include('header.html')  -%> 
+<link href="css/liuyan.css" rel="stylesheet">
+<article>
+  <div class="l_box">
+    <%- include('l_about.html')  -%> 
+    <%- include('l_photos.html')  -%> 
+    <%- include('l_guanzhu.html')  -%> 
+  </div>
+  <div class="liuyan">
+     <ul>
+       <li style="text-align: center;"> <h2>留言板</h2> </li>
+       <% page.list.forEach(gbook => { %>
+        <li>
+          <span class="username"><%= gbook.user %>:</span>
+          <span><%- gbook.content %> </span>
+        </li>
+       <% }) %>
+     </ul>
+     <div class="pagelist">
+      <% if (page.p !=1) { %>
+        <a href="/gbook?p=<%= parseInt(page.p)-1 %>">上一页</a>&nbsp;&nbsp;
+      <% } %>
+      <% for( let index = 1; index <= page.total; index++ ) { %>
+        <a href="/gbook?p=<%= index %>" class="<%= page.p==index?'curPage':'' %> "><%= index %></a>&nbsp;&nbsp;
+      <% } %>
+      <% if (page.p!=page.total) { %>
+        <a href="/gbook?p=<%= parseInt(page.p)+1 %>">下一页</a>&nbsp;&nbsp;
+      <% } %>
+    </div>
+     <div class="comment">
+       <div class="com_form">
+        <div class="emotion">表情</div>
+          <textarea class="input" id="saytext" name="saytext"></textarea>
+          <p class="liuyan-ch">
+              <input type="button" class="sub_btn" value="提交">
+          </p>
+       </div>
+     </div>
+     
+  </div>
+</article>
+
+<script type="text/javascript" src="js/jquery.qqFace.js"></script>
+
+<script type="text/javascript">
+
+  $(function(){
+  
+    $('.emotion').qqFace({
+  
+      id : 'facebox', 
+  
+      assign:'saytext', 
+  
+      path:'/images/arclist/'	//表情存放的路径
+  
+    });
+  
+    $(".sub_btn").click(function(){
+  
+      let content = replace_em($("#saytext").val());
+      let user = $("[name='user']").val()
+
+      //$("#show").html(replace_em(str));
+      if(user){
+        $.post('/gbook/add',{content:content,user:user},function(res){
+          if (res.code == 1) {
+             console.log('留言成功')
+             alert('留言成功')
+              setTimeout(() => {
+                location.reload()
+              }, 1000);
+          } else {
+              console.log('留言失败')
+              alert('留言失败')
+          }
+        })
+      } else {
+        alert('请先登录')
+      }
+      
+  
+    });
+  
+  });
+  
+  //查看结果
+  
+  function replace_em(str){
+  
+    str = str.replace(/\</g,'&lt;');
+  
+    str = str.replace(/\>/g,'&gt;');
+  
+    str = str.replace(/\n/g,'<br/>');
+  
+    str = str.replace(/\[em_([0-9]*)\]/g,`<img src="images/arclist/$1.gif" border="0"/>`);
+    console.log(str)
+    return str;
+  
+  }
+  </script>
+<%- include('footer.html')  -%> 

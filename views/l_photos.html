@@ -1,0 +1,8 @@
+<div class="wdxc">
+    <h2>我的相册</h2>
+    <ul>
+        <% photos.forEach(photo => { %>
+            <li><a href="/<%= photo.photoUrl %> "><img src="<%= photo.photoUrl %> "></a></li>
+        <% }) %>
+    </ul>
+  </div>

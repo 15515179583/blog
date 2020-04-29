@@ -1,0 +1,146 @@
+<%- include('header.html')  -%> 
+<link href="css/info.css" rel="stylesheet">
+<script type="text/javascript">
+
+  $(document).ready(function(e) {			
+    t = $('.guanzhu').offset().top;
+  
+    mh = $('.infosbox').height();
+    fh = $('.guanzhu').height();
+  
+    $(window).scroll(function(e){
+      s = $(document).scrollTop();	
+      if(s > t - 10){
+        $('.guanzhu').css('position','fixed');
+             $('.guanzhu').css('background','fff');
+             $('.guanzhu').css('width',$('.l_box').css('width'));
+        if(s + fh > mh){
+          $('.guanzhu').css('top',mh-s-fh+'px');	
+        }				
+      }else{
+        $('.guanzhu').css('position','');
+      }
+      
+    })
+  });
+  
+  </script> 
+<article>
+  <div class="l_box">
+    <div class="search">
+      <form action="/search" method="get" name="searchform" id="searchform">
+        <input name="keyword" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+      </form>
+    </div>
+    <div class="fenlei">
+      <h2>文章分类</h2>
+      <ul>
+        <% categories.forEach(category => { %>
+          <li><a href="/search?category_id=<%= category.id %> "><%= category.name %> </a></li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="tuijian">
+      <h2>站长推荐</h2>
+      <ul>
+        <% hots.forEach(hot => { %>
+          <li><a href="/article/<%= hot.id %>"><%= hot.title %> </a></li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="tuijian">
+      <h2>点击排行</h2>
+      <ul>
+        <% rankings.forEach(ranking => { %>
+          <li><a href="/article/<%= ranking.id %>"><%= ranking.title %> <%= ranking.hits %></a></li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="cloud">
+      <h2>标签云</h2>
+      <ul>
+        <% tabs.forEach(tab => { %>
+          <a href="JavaScript:void(0)"><%= tab.name %> </a>
+        <% }) %>
+      </ul>
+    </div>
+    <%- include('l_guanzhu.html')  -%> 
+  </div>
+  <div class="infosbox">
+    <input type="hidden" name="id" value="<%= article.id %>">
+    <div class="newsview">
+      <h3 class="news_title"><%= article.title %></h3>
+      <div class="bloginfo">
+        <ul>
+          <li class="author">作者：<a href="/">smile</a></li>
+          <li class="lmname"><a href="/">学无止境</a></li>
+          <li class="time timer">时间：<%= article.time %></li>
+          <li class="view"><%= parseInt(article.hits)+1 %>人已阅读</li>
+        </ul>
+      </div>
+      <div class="tags">
+        
+        <% article_tabs.forEach(article_tab => { %>
+          <a href="JavaScript:void(0)" target="_blank"><%= article_tab.name %> </a>&nbsp; 
+        <% }) %>
+      </div>
+      <div class="news_about">
+        <strong>简介</strong>
+        <%= article.about %>
+      </div>
+      <div class="news_content">
+        <%- article.content %>
+        &nbsp; </div>
+    </div>
+    <div class="share">
+      <p class="diggit">
+        <a href="JavaScript:void(0)" onclick="like(<%= article.id %>)" id="zan"> 很赞哦！ 
+          (<b id="diggnum"><%= article.like %></b>)
+        </a>
+      </p>
+    </div>
+    <div class="nextinfo">
+      <% if (prevArticle) { %>
+        <p>上一篇：<a href="/article/<%= prevArticle.id %> "><%= prevArticle.title %> </a></p>
+      <% } %>
+      <% if (nextArticle) { %>
+        <p>下一篇：<a href="/article/<%= nextArticle.id %> "><%= nextArticle.title %> </a></p>
+      <% } %>
+    </div>
+    <div class="news_pl">
+      <h2>文章评论</h2>
+      <ul>
+        <div class="gbko"> </div>
+      </ul>
+    </div>
+  </div>
+</article>
+<script>
+  let click = false
+  function like(id){
+    if(!click){
+      $.getJSON('/article/:id/like',{id:id},function(res){
+        if (res.code == 1) {
+          console.log('点赞成功')
+          $('#zan').html('谢谢支持'+ '(<b id="diggnum"><%= article.like %></b>)')
+          $('#diggnum').html(parseInt($('#diggnum').html())+1)
+        } else {
+          console.log('点赞失败')
+        }
+      })
+      click = true
+    }
+  }
+  function hit(id){
+      $.getJSON('/article/:id/hit',{id:id},function(res){
+        if (res.code == 1) {
+          console.log('浏览成功')
+        } else {
+          console.log('浏览量更新失败')
+        }
+    })
+  }
+  hit($('[name="id"]').val())
+</script>
+<%- include('footer.html')  -%> 

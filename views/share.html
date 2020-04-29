@@ -1,0 +1,69 @@
+<%- include('header.html')  -%> 
+<script src="js/scrollReveal.js"></script>
+<article>
+  <div class="picbox">
+    <ul class = "list1"></ul>
+    <ul class = "list2"></ul>
+    <ul class = "list3"></ul>
+    <ul class = "list4"></ul>
+    <ul class = "list5" style="display: none;">
+      <% photos.forEach((photo,index) => { %>
+        <li class="photo-item" <% if (index>4) { %>
+          <%= `data-scroll-reveal="enter bottom over 1s"` %> 
+        <% } %> >
+          <a href="<%= photo.photoUrl %>">
+            <i>
+              <img src="<%= photo.photoUrl %>">
+            </i>
+            <div class="picinfo">
+              <h3><%= photo.title %> </h3>
+              <span><%= photo.content %> </span> 
+            </div>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  </div>
+</article>
+<script>
+	if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+		(function(){
+			window.scrollReveal = new scrollReveal({reset: true});
+		})();
+  };
+  
+  let colHeightArr = [0,0,0,0]
+
+  $(".photo-item img").on("load",function(){
+    let minValue = colHeightArr[0]
+    let minIndex = 0
+    for (let index = 0; index < 4; index++) {
+      if(colHeightArr[index]<minValue) {
+        minValue = colHeightArr[index]
+        minIndex = index
+      }
+    }
+    colHeightArr[minIndex] += $(this).parents(".photo-item").outerHeight(true)
+    //console.log($(this),$(this).parents(".photo-item"))
+    $(`.list${minIndex+1}`).append($(this).parents(".photo-item"))
+    //console.log($(this).parents(".photo-item").outerHeight(true),colHeightArr[0])
+  })
+  
+  function reset() {
+    let minValue = colHeightArr[0]
+    let minIndex = 0
+    for (let index = 0; index < 4; index++) {
+      if(colHeightArr[index]<minValue) {
+        minValue = colHeightArr[index]
+        minIndex = index
+      }
+    }
+    colHeightArr[minIndex] += $(this).parents(".photo-item").outerHeight(true)
+    //console.log($(this),$(this).parents(".photo-item"))
+    $(`.list${minIndex+1}`).append($(this).parents(".photo-item"))
+  }
+  $(window).on('load',function(){
+    reset()
+  })
+</script>
+<%- include('footer.html')  -%> 

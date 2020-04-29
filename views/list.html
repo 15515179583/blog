@@ -1,0 +1,69 @@
+<%- include('header.html')  -%> 
+<article>
+  <div class="l_box">
+    
+   
+    <div class="search">
+      <form action="/search" method="get" name="searchform" id="searchform">
+        <input name="keyword" id="keyboard" class="input_text" value="请输入关键字词" style="color: rgb(153, 153, 153);" onfocus="if(value=='请输入关键字词'){this.style.color='#000';value=''}" onblur="if(value==''){this.style.color='#999';value='请输入关键字词'}" type="text">
+        <input name="Submit" class="input_submit" value="搜索" type="submit">
+      </form>
+    </div>
+    <div class="fenlei">
+      <h2>文章分类</h2>
+      <ul>
+        <% categories.forEach(category => { %>
+          <li><a href="/search?category_id=<%= category.id %> "><%= category.name %> </a></li>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="tuijian">
+      <h2>站长推荐</h2>
+      <ul>
+        <% hots.forEach(hot => { %>
+          <li><a href="/article/<%= hot.id %>"><%= hot.title %> </a></li>
+        <% }) %>
+      </ul>
+    </div>
+     <div class="tuijian">
+      <h2>点击排行</h2>
+      <ul>
+        <% rankings.forEach(ranking => { %>
+          <li><a href="/article/<%= ranking.id %>"><%= ranking.title %> <%= ranking.hits %></a></li>
+        <% }) %>
+      </ul>
+    </div>
+<div class="cloud">
+      <h2>标签云</h2>
+      <ul>
+        <% tabs.forEach(tab => { %>
+          <a href="JavaScript:void(0)"><%= tab.name %> </a>
+        <% }) %>
+      </ul>
+    </div>
+    <%- include('l_guanzhu.html')  -%> 
+  </div>
+  <div class="r_box">
+    <% page.list.forEach(article => { %>
+      <li><i><a href="/article/<%= article.id %> "><img src="<%= article.thumbnail %> "></a></i>
+        <h3><a href="/article/<%= article.id %>"><%= article.title %></a></h3>
+        <p class="time"><%= article.time %></p>
+        <p><%= article.content.replace(/<[^>]+>/g,'').substring(0,100) %>... </p>
+      </li>
+    <% }) %>
+    <% if (page.total != 1) { %>
+      <div class="pagelist">
+        <% if (page.p !=1) { %>
+          <a href="/?p=<%= parseInt(page.p)-1 %>">上一页</a>&nbsp;&nbsp;
+        <% } %>
+        <% for( let index = 1; index <= page.total; index++ ) { %>
+          <a href="/?p=<%= index %>" class="<%= page.p==index?'curPage':'' %> "><%= index %></a>&nbsp;&nbsp;
+        <% } %>
+        <% if (page.p!=page.total) { %>
+          <a href="/?p=<%= parseInt(page.p)+1 %>">下一页</a>&nbsp;&nbsp;
+        <% } %>
+      </div>
+    <% } %>
+  </div>
+</article>
+<%- include('footer.html')  -%> 

@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1785608_084f5u91x4s9.css">
+<script src="//at.alicdn.com/t/font_1785608_084f5u91x4s9.js"></script>
+<div class="about_me">
+    <h2>关于我</h2>
+    <ul>
+        <i><img src="<%= website.about_img %> "></i>
+        <p><b><%= website.user %> </b><%= website.about_content %> </p>
+
+        <ul class="icon-links">
+            <li class="icon-link"><a href="<%= website.github %>"><svg class="iconfont"><use xlink:href="#icon-GitHub"></use></svg></a></li>
+            <li class="icon-link"><a href="<%= website.csdn %>"><svg class="iconfont"><use xlink:href="#icon-csdn"></use></svg></a></li>
+            <li class="icon-link"><a href="<%= website.qq %>" class="qq"><svg class="iconfont"><use xlink:href="#icon-QQ"></use></svg></a></li>
+        </ul>
+        
+    </ul>
+</div>
+<script>
+    // 判断苹果、安卓、pc
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+        $('.qq').attr('href','mqqwpa://im/chat?version=1&src_type=web&web_src=oicqzone.com&uin='+$('.qq').attr('href'))
+    } else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+        $('.qq').attr('href','mqqwpa://im/chat?version=1&src_type=web&web_src=oicqzone.com&uin='+$('.qq').attr('href'))
+    } else { //pc
+        let href = 
+        $('.qq').attr('href','tencent://message/?uin='+$('.qq').attr('href'))
+        //console.log('tencent://message/?uin='+$('.qq').attr('href'))
+    };
+</script>
