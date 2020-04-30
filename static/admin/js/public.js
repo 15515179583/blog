@@ -104,7 +104,6 @@ if ($('#editor').length) {
 }
 
 if ($('[type="file"]').length) {
-    console.log($('[type="file"]').next('label'))
     $('[type="file"]').next('label').css('cursor', 'pointer')
     $('[type="file"]').change(function (e) {
         var url = window.URL.createObjectURL(e.target.files[0]);
@@ -140,7 +139,7 @@ if ($('.list-group-item').length) {
     if(!href.endsWith("/")) {
         href += '/'
     }
-    console.log(location.pathname)
+    //console.log(location.pathname)
     $(`.list-group-item a[href='${href}']`).parent().addClass('active')
 }
 

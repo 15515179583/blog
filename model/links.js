@@ -1,11 +1,15 @@
 module.exports = class Links extends require('./model'){
-    static getList(){
+    static getList(all){
         return new Promise((resolve,reject)=>{
-            let sql = 'SELECT id,`name`,linkUrl FROM links ORDER BY id'
+            let sql = 'SELECT * FROM links WHERE 1 = 1'
+            if(!all) {
+                sql += ' AND display = 1'
+            }
+            sql += ' ORDER BY id'
             this.query(sql).then(results=>{
                 resolve(results)
             }).catch(err =>{
-                console.log(`获取朋友链接失败：${err.message}`)
+                console.log(`获取友情链接失败：${err.message}`)
                 reject(err)
             })
         })
@@ -42,6 +46,17 @@ module.exports = class Links extends require('./model'){
                 resolve(results.affectedRows)
             }).catch(err =>{
                 console.log(`友链链接修改失败：${err.message}`)
+                reject(err)
+            })
+        })
+    }
+    static setDisplay(id,display){
+        return new Promise((resolve,reject)=>{
+            let sql = 'UPDATE links SET display = ? WHERE id = ?'
+            this.query(sql,[display,id]).then(results=>{
+                resolve(results.affectedRows)
+            }).catch(err =>{
+                console.log(`友链状态修改失败：${err.message}`)
                 reject(err)
             })
         })

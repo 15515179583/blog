@@ -33,6 +33,7 @@
                                             <th></th>
                                             <th>名称</th>
                                             <th>链接</th>
+                                            <th>状态</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
@@ -45,6 +46,12 @@
                                                 </td>
                                                 <td title="双击修改"><input type="text" name="link_<%= link.id %>" value="<%= link.linkUrl %>"
                                                         class="form-control text-center bg-white border-0 dbcedit" onchange="sub_link(<%= link.id %>,this.value)" disabled>
+                                                </td>
+                                                <td>
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="display<%= link.id %>" value="<%= link.id %> " <%= link.display?'checked':'' %> onchange="setDisplay(this.value,this.checked)">
+                                                        <label class="custom-control-label" for="display<%= link.id %>"></label>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-link text-danger" onclick="del(<%= link.id %>)"><i class="iconfont icon-delete"></i>删除</button>
@@ -100,6 +107,16 @@
                     }, 2000);
                 } else {
                     showToasts('失败','修改友链链接失败')
+                }
+            })
+
+        }
+        function setDisplay(id,display){
+            $.get('/admin/links/setdisplay',{id:id,display:display?1:0},function(res){
+                if (res.code == 1) {
+                    showToasts('成功','修改链接状态成功')
+                } else {
+                    showToasts('失败','修改链接状态失败')
                 }
             })
 

@@ -1,7 +1,7 @@
 module.exports = class User extends require('./model'){
     static login(username,password){
         return new Promise((resolve,reject)=>{
-            let sql = 'SELECT id, username, admin, user_img FROM `user` WHERE username = ? AND `password` = ?'
+            let sql = 'SELECT id, username, admin, user_img, link FROM `user` WHERE username = ? AND `password` = ?'
             this.query(sql,[username,password]).then(results=>{
                 resolve(results[0])
             }).catch(err =>{
@@ -79,6 +79,17 @@ module.exports = class User extends require('./model'){
                 resolve(results.affectedRows)
             }).catch(err =>{
                 console.log(`权限设置失败：${err.message}`)
+                reject(err)
+            })
+        })
+    }
+    static setLink(username){
+        return new Promise((resolve,reject)=>{
+            let sql = 'UPDATE user SET link = 1 WHERE username = ?'
+            this.query(sql,username).then(results=>{
+                resolve(results.affectedRows)
+            }).catch(err =>{
+                console.log(`链接申请失败：${err.message}`)
                 reject(err)
             })
         })

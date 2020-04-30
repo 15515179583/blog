@@ -3,7 +3,7 @@ const links = require('../../middleware/links')
 
 const linksApp = express() 
 
-linksApp.get('/',links.getList,(req,res)=>{
+linksApp.get('/',links.getAllList,(req,res)=>{
     let {links} = req
     res.render('admin/links/index',{user:req.user,links:links})
 })
@@ -43,6 +43,19 @@ linksApp.get('/setlink',links.setLinkUrl,(req,res) =>{
         res.json({
             code:0,
             msg:'修改友链链接失败'
+        })
+    }
+})
+linksApp.get('/setdisplay',links.setDisplay,(req,res) =>{
+    if(req.affectedRows > 0){
+        res.json({
+            code:1,
+            msg:'修改友链状态成功'
+        })
+    } else {
+        res.json({
+            code:0,
+            msg:'修改友链状态失败'
         })
     }
 })

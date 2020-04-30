@@ -9,6 +9,15 @@ module.exports = {
             //console.log(err)
         })
     },
+    getAllList: (req,res,next) => {
+        Links.getList(true).then(results =>{
+            req.links = results
+            next()
+        }).catch(err =>{
+            next(err)
+            //console.log(err)
+        })
+    },
     del:(req,res,next) =>{
         let {id} = req.query
         Links.del(id).then(results =>{
@@ -32,6 +41,16 @@ module.exports = {
     setLinkUrl:(req,res,next) =>{
         let {id,linkUrl} = req.query
         Links.setLinkUrl(id,linkUrl).then(results =>{
+            req.affectedRows = results
+            next()
+        }).catch(err =>{
+            next(err)
+            //console.log(err)
+        })
+    },
+    setDisplay:(req,res,next) =>{
+        let {id,display} = req.query
+        Links.setDisplay(id,display).then(results =>{
             req.affectedRows = results
             next()
         }).catch(err =>{

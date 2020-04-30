@@ -91,4 +91,14 @@ module.exports = {
             //console.log(err)
         })
     },
+    setLink:(req,res,next) =>{
+        let {username} = req.body
+        User.setLink(username).then(results =>{
+            req.affectedRows = results
+            next()
+        }).catch(err =>{
+            next(err)
+            //console.log(err)
+        })
+    },
 }
