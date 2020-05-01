@@ -92,8 +92,34 @@ if ($('[data-toggle="popover"]').length) {
 
 if ($('#editor').length) {
     ClassicEditor
+    //DecoupledEditor
         .create(document.querySelector('#editor'), {
-            language: 'zh-cn',
+            //toolbar:['undo', 'redo', 'Bold', 'Italic', 'Underline', 'FontBackgroundColor', 'FontColor', 'FontSize', 'FontFamily', 'Alignment', '|', 'RemoveFormat', 'Link', '|', 'ImageUpload', 'imageTextAlternative', 'imageStyle:full', 'imageStyle:side', 'MediaEmbed', '|', 'insertTable', 'tableColumn', 'tableRow', 'mergeTableCells'],
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'fontColor',
+                    'fontBackgroundColor',
+                    '|',
+                    'indent',
+                    'outdent',
+                    'blockQuote',
+                    'code',
+                    'codeBlock',
+                    '|',
+                    'bulletedList',
+                    'numberedList',
+                    'link',
+                    'imageUpload',
+                    'insertTable',
+                    'undo',
+                    'redo'
+                ]
+            },
+            //language: 'zh-cn',
             ckfinder: {
                 uploadUrl: '/admin/article/ckeditor'
             }
