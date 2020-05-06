@@ -33,7 +33,7 @@
   };
   
   let colHeightArr = [0,0,0,0]
-  
+
   $(".photo-item img").on("load",function(){
     let minValue = colHeightArr[0]
     let minIndex = 0
@@ -62,8 +62,8 @@
     //console.log($(this),$(this).parents(".photo-item"))
     $(`.list${minIndex+1}`).append($(this).parents(".photo-item"))
   }
-  $(document).ready(function(){
+  $(window).on('load',function(){
     reset()
-  });
+  })
 </script>
 <%- include('footer.html')  -%> 

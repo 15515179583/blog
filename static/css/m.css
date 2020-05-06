@@ -23,6 +23,7 @@ nav{display:none}
 .pagelist a { padding: 2px 3px;}
 .picbox ul{    width: 22%;}
 .picbox ul li i{ margin:5px}
+.probox ul{justify-content: space-around;}
 .picinfo{ display:none}
 .picshowlist{ display:none}
 .lmname,.view{ display:none}
@@ -40,6 +41,7 @@ nav{display:none}
 .piclistshow ul li{ height:100px; padding:0}
 .piclistshow .picimg{ height:100px}
 .picbox ul li i{ margin:2px}
+.probox ul{justify-content: space-around;}
 .picinfo{ display:none}
 .picshowlist,.pictxt{ display:none}
 .lmname,.view{ display:none}

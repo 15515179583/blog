@@ -34,6 +34,7 @@ app.use('/search',require('./router/search'))
 app.use('/about',require('./router/about'))
 app.use('/share',require('./router/share'))
 app.use('/gbook',require('./router/gbook'))
+app.use('/project',require('./router/project'))
 
 app.use('/user',require('./router/user'))
 

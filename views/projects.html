@@ -1,0 +1,66 @@
+<%- include('header.html')  -%> 
+<script src="js/scrollReveal.js"></script>
+<article>
+  <div class="probox">
+      <ul>
+          <li>
+              <a href="JavaScript:void(0)">
+                  <img src="/images/user_img.jpg" alt="">
+                  <div class="info">
+                    <h3>项目一</h3>
+                    <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                  </div>
+              </a>
+          </li>
+          <li>
+            <a href="JavaScript:void(0)">
+                <img src="/images/user_img.jpg" alt="">
+                <div class="info">
+                  <h3>项目一</h3>
+                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="JavaScript:void(0)">
+                <img src="/images/user_img.jpg" alt="">
+                <div class="info">
+                  <h3>项目一</h3>
+                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="JavaScript:void(0)">
+                <img src="/images/user_img.jpg" alt="">
+                <div class="info">
+                  <h3>项目一</h3>
+                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述述描述描述描述述描述描述描述述描述描述描述述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="JavaScript:void(0)">
+                <img src="/images/user_img.jpg" alt="">
+                <div class="info">
+                  <h3>项目一</h3>
+                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                </div>
+            </a>
+        </li>
+      </ul>
+  </div>
+</article>
+<script>
+    //<li class="hidden"></li>
+    console.log($(".probox ul li").length)
+    console.log($(".probox ul li").length)
+    console.log($(".probox").outerWidth(true))
+    if($(".probox ul li").length%3==1&&$(".probox").outerWidth(true)>800){
+        $(".probox ul").append(`<li class="hidden"></li>`)
+        $(".probox ul").append(`<li class="hidden"></li>`)
+    } else if($(".probox ul li").length%3==2&&$(".probox").outerWidth(true)>800) {
+        $(".probox ul").append(`<li class="hidden"></li>`)
+    }
+</script>
+<%- include('footer.html')  -%> 

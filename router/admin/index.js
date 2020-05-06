@@ -10,7 +10,7 @@ indexApp.get('/',[user.lastLoginTime,pv.getTotal,article.getCount,category.getCo
     let {user,lastLoginTime,pvTotal,articleCount,categoryCount} = req
     res.render('admin/index',{user:user,lastLoginTime:lastLoginTime,pvTotal:pvTotal,articleCount:articleCount,categoryCount:categoryCount})
 })
-
+/*
 indexApp.get('/pvs',[pv.getAll],(req,res)=>{
     let {pvs} = req
     let data = {}
@@ -19,5 +19,5 @@ indexApp.get('/pvs',[pv.getAll],(req,res)=>{
     data.end = pvs[pvs.length-1].time
     res.json(data)
 })
-
+*/
 module.exports = indexApp
