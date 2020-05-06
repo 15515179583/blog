@@ -10,6 +10,13 @@
 .about ol li{list-style-type: decimal; padding: 0; margin: 0; overflow: visible;}
 .about blockquote {background-color: #eaeeee;overflow-x: scroll;}
 .about blockquote p {padding: 0 1.5em; white-space:nowrap;overflow: visible;}
+
+.about code {margin: 0 0.2em;padding: 0 0.2em;word-break: normal;word-wrap: break-word;background-color: rgb(233, 224, 235);}
+
+.about pre  {padding:1em 0; margin-top: 0.5em;background-color: #e4e6f1;overflow-x: scroll;}
+.about pre code { padding: 0 1.5em; white-space:wrap;overflow: visible;background-color: inherit;color: inherit;}
+
+
 .about a{color: rgb(101, 144, 187); margin:0 0.1em; padding:0 0.2em; background-color: #f5eded;}
 .about a:hover{color: rgb(240, 191, 191); background-color: #e5eef0}
 .about blockquote p:nth-of-type(1) {padding-top: 1em;}
