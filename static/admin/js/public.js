@@ -122,7 +122,15 @@ if ($('#editor').length) {
             //language: 'zh-cn',
             ckfinder: {
                 uploadUrl: '/admin/article/ckeditor'
-            }
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            },
+            licenseKey: '',
         })
         .catch(error => {
             console.error(error);
