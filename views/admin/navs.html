@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1773895_bosu4d1chek.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1773895_7ji5s96a5gi.css">
 <div class="col-2 bg-white border-right nav-left p-0">
     <% if (user.admin) { %>
         <div class="row text-center mt-3 px-5">
@@ -6,6 +6,9 @@
         </div>
         <div class="row text-center mt-3 px-5">
             <a href="/admin/photos/add" class="btn btn-primary rounded-0 col">上传照片</a>
+        </div>
+        <div class="row text-center mt-3 px-5">
+            <a href="/admin/project/add" class="btn btn-primary rounded-0 col">上传作品</a>
         </div>
     <% } %>
     <div class="list-group list-group-flush border-top border-bottom mt-3 text-center">
@@ -35,6 +38,11 @@
             <li class="list-group-item list-group-item-action">
                 <a href="/admin/photos/" class="text-decoration-none text-secondary">
                     <i class="iconfont icon-Photos pr-1"></i>照片管理
+                </a>
+            </li>
+            <li class="list-group-item list-group-item-action">
+                <a href="/admin/project/" class="text-decoration-none text-secondary">
+                    <i class="iconfont icon-ziyuan pr-1"></i>作品管理
                 </a>
             </li>
             <li class="list-group-item list-group-item-action">

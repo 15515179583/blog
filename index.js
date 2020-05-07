@@ -46,6 +46,7 @@ app.use('/admin/category/?*',require('./middleware/auth').allowToIt)
 app.use('/admin/links/?*',require('./middleware/auth').allowToIt)
 app.use('/admin/users/?*',require('./middleware/auth').allowToIt)
 app.use('/admin/about/?*',require('./middleware/auth').allowToIt)
+app.use('/admin/project/?*',require('./middleware/auth').allowToIt)
 
 app.post('/admin/article/ckeditor',upload.single('upload'),(req,res,next)=>{
     let {file} = req
@@ -87,6 +88,7 @@ app.use('/admin/links',require('./router/admin/links'))
 app.use('/admin/photos',require('./router/admin/photos'))
 app.use('/admin/users',require('./router/admin/users'))
 app.use('/admin/about',require('./router/admin/about'))
+app.use('/admin/project',require('./router/admin/project'))
 
 
 app.listen(80)

@@ -3,51 +3,17 @@
 <article>
   <div class="probox">
       <ul>
+        <% projects.forEach(project => { %>
           <li>
-              <a href="JavaScript:void(0)">
-                  <img src="/images/user_img.jpg" alt="">
-                  <div class="info">
-                    <h3>项目一</h3>
-                    <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
-                  </div>
-              </a>
-          </li>
-          <li>
-            <a href="JavaScript:void(0)">
-                <img src="/images/user_img.jpg" alt="">
+            <a href="<%= project.linkUrl %>">
+                <img src="<%= project.photoUrl %>" alt="">
                 <div class="info">
-                  <h3>项目一</h3>
-                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
+                  <h3><%= project.title %></h3>
+                  <p title="<%= project.content %>"><%= project.content %></p>
                 </div>
             </a>
         </li>
-        <li>
-            <a href="JavaScript:void(0)">
-                <img src="/images/user_img.jpg" alt="">
-                <div class="info">
-                  <h3>项目一</h3>
-                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="JavaScript:void(0)">
-                <img src="/images/user_img.jpg" alt="">
-                <div class="info">
-                  <h3>项目一</h3>
-                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述述描述描述描述述描述描述描述述描述描述描述述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="JavaScript:void(0)">
-                <img src="/images/user_img.jpg" alt="">
-                <div class="info">
-                  <h3>项目一</h3>
-                  <p>描述描述描述描述描述描述描述描述描述描述描述描述描述</p>
-                </div>
-            </a>
-        </li>
+        <% }) %>
       </ul>
   </div>
 </article>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1658828_vud4w73neg.css">
+    <link rel="stylesheet" href="/admin/css/style.css">
+</head>
+
+<body class="bg-light">
+    <%- include('../header.html')  -%> 
+
+    <div class="container-fluid vh-100">
+        <div class="row h-100">
+            <%- include('../navs.html')  -%> 
+            <div class="col-10">
+                <div class="p-3 border mb-3 bg-white">
+                    <h4 class="mb-0">作品管理</h4>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white d-flex justify-content-between">
+                                <h6 class="mb-0 align-self-center">添加作品</h6>
+                            </div>
+                            <div class="card-body">
+                                <form action="/admin/project/add" method="POST" enctype="multipart/form-data">
+                                    <div class="form-row">
+                                        <label for="title" class="col-2 text-center col-form-label">标题：</label>
+                                        <input type="text" class="col-8 form-control" name="title" id="title" required>
+                                        <span class="col-2 col-form-label text-danger">* 必填项</span>
+                                    </div>
+                                    <div class="form-row mt-3">
+                                        <label for="linkUrl" class="col-2 text-center col-form-label">演示地址：</label>
+                                        <input type="text" class="col-8 form-control" name="linkUrl" id="linkUrl">
+                                    </div>
+                                    <div class="form-row mt-3">
+                                        <label for="ue_content" class="col-2 text-center col-form-label">内容：</label>
+                                        <div class="col-8 p-0">
+                                            <textarea style="width: 100%; height: 110px;" name="content"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-3">
+                                        <label for="content" class="col-2 text-center col-form-label">缩略图：</label>
+                                        <div class="col-8">
+                                            <input type="file" class="d-none" id="customFile" name="upload"
+                                                accept="image/*">
+                                            <label for="customFile" class="position-relative">
+                                                <img src="" data-src="holder.js/200x200?text=点击上传"
+                                                    class="img-thumbnail" width="200" height="200">
+                                                <button type="button" class="delimg btn btn-danger btn-sm position-absolute"
+                                                    title="删除">&times;</button>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-3">
+                                        <div class="offset-2 col-10">
+                                            <input type="submit" value="提交" class="btn btn-success col-5">
+                                            <a href="/admin/project/" class="btn btn-danger ml-3 col-5">取消</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toasts position-absolute" style="min-width:300px;right:0;top:80px"></div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/lib/antv/g2/3.5.12/dist/g2.min.js"></script>
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.2/dist/data-set.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
+    <script src="/admin/js/public.js"></script>
+    <script>
+        $('form').submit(function () {
+            showToasts('成功', '操作成功')
+        })
+    </script>
+    <% if (code == 11) { %>
+        <script>
+           showToasts('成功','添加新作品成功')
+        </script>
+    <% } else if (code == 10 ){ %>
+        <script>
+            showToasts('失败','添加失败')
+         </script>
+    <% } %>
+</body>
+
+</html>

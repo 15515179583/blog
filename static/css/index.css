@@ -58,11 +58,11 @@ a.curPage { color: #19585d; font-weight: bold; }
 /*add*/
 
 .probox {width: 100%; overflow: hidden;}
-.probox ul {display: flex; flex-wrap: wrap; justify-content: space-between;}
-.probox ul li {width: 260px; height: 380px; margin-bottom:40px;margin-right:5px; border: 1px solid rgb(183, 226, 240); overflow: hidden;}
+.probox ul {margin: 4px; display: flex; flex-wrap: wrap; justify-content: space-between;}
+.probox ul li {width: 260px; height: 380px; margin-bottom:40px; border: 1px solid rgb(183, 226, 240); overflow: hidden;}
 .probox ul li a img{width: 100%;}
 .probox ul li a h3{text-align: center; margin: 1em 0;}
-.probox ul li a p{padding: 0 0.5em; }
+.probox ul li a p{padding: 0 0.5em; word-break: break-all;}
 .probox ul li:hover{
     cursor: pointer;
     box-shadow: rgb(188, 201, 204) 3px 3px;
