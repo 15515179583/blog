@@ -4,6 +4,7 @@
 作者：smile<br>
 网址：[http://smile6666.com/](http://smile6666.com/)<br>
 说明：博客可提供给需要的小伙伴下载，希望能在博客友链添加本站地址<br>
+图片展示：![网站展示](http://smile6666.com/upload/26ce046fa47b210211f11273f975056f.png)
 
 ## 开发技术
 
