@@ -1,4 +1,4 @@
-@charset "gb2312";
+﻿@charset "gb2312";
 .infosbox { float: right; width: 68%; overflow: hidden; background: rgba(255,255,255,0.8);}
 .newsview { padding: 0 30px }
 .intitle { line-height: 40px; height: 40px; font-size: 14px; ; border-bottom: #000 2px solid; }
@@ -38,9 +38,6 @@
 .news_content blockquote p {padding: 0 1.5em; white-space:nowrap;overflow: visible;}
 
 .news_content code {margin: 0 0.2em;padding: 0 0.2em;word-break: normal;word-wrap: break-word;background-color: rgb(233, 224, 235);}
-
-.news_content pre  {padding:1em 0; margin-top: 0.5em;background-color: #e4e6f1;overflow-x: scroll;}
-.news_content pre code { padding: 0 1.5em; white-space:wrap;overflow: visible;background-color: inherit;color: inherit;}
 
 .news_content a{color: rgb(101, 144, 187); margin:0 0.1em; padding:0 0.2em; background-color: #f5eded;}
 .news_content a:hover{color: rgb(240, 191, 191); background-color: #e5eef0}

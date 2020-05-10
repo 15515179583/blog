@@ -1,5 +1,6 @@
 <%- include('header.html')  -%> 
 <link href="css/info.css" rel="stylesheet">
+<link href="css/prism.css" rel="stylesheet">
 <script type="text/javascript">
 
   $(document).ready(function(e) {			
@@ -116,7 +117,9 @@
     </div>
   </div>
 </article>
+<script src="js/prism.js"></script>
 <script>
+  $('pre').addClass("line-numbers")
   let click = false
   function like(id){
     if(!click){

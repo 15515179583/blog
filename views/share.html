@@ -11,9 +11,9 @@
         <li class="photo-item" <% if (index>4) { %>
           <%= `data-scroll-reveal="enter bottom over 1s"` %> 
         <% } %> >
-          <a href="<%= photo.photoUrl %>">
+          <a href="javascript:void(0)">
             <i>
-              <img src="<%= photo.photoUrl %>">
+              <img src="<%= photo.photoUrl %>" oncontextmenu="return false">
             </i>
             <div class="picinfo">
               <h3><%= photo.title %> </h3>
