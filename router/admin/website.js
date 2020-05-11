@@ -10,7 +10,6 @@ websiteApp.get('/',(req,res)=>{
 })
 
 websiteApp.post('/edit',website.edit,(req,res) => {
-    console.log(req.affectedRows)
     if(req.affectedRows >0) {
         res.render('admin/alert',{message:'编辑成功',url:'/admin/website'})
     } else {

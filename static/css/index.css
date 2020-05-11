@@ -82,7 +82,7 @@ a.curPage { color: #19585d; font-weight: bold; }
 .probox ul:last-child {
     margin-right: auto;
 }
-#container_small_tip{
+.container_small_tip{
     background:#efefef;
      position:relative;
      margin: 0 auto;
@@ -93,7 +93,7 @@ a.curPage { color: #19585d; font-weight: bold; }
      /* margin:100px; */
  }
  
- #content_small_tip{
+ .content_small_tip{
      position:absolute;
      left:0;
      top:0;

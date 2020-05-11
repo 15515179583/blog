@@ -8,7 +8,8 @@
                  var speed = (document.all) ? options.speed : Math.max(1, options.speed - 1);
                  if ($(this) == null) return;
                  var $container = $(this);
-                 var $content = $("#content_small_tip");
+                 console.log(this)
+                 var $content = this.children(".content_small_tip")//$(".content_small_tip");
                  var init_left = $container.width();
                  $content.css({ left: parseInt(init_left) + "px" });
                  var This = this;
@@ -38,8 +39,11 @@
          });
      })(jQuery);
      //插件的调用$("#yourId").roll({speed:#yourSpeed});
-     $(document).ready(
+     /*$(document).ready(
          function () {
-             $("#container_small_tip").roll({ speed: 2 });
+             let message = $(".message")
+             message.children(".container_small_tip").eq(0).roll({ speed: 2 });
+             message.children(".container_small_tip").eq(1).roll({ speed: 4 });
          }
      );
+*/
