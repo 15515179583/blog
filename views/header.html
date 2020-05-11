@@ -84,7 +84,7 @@ obj.id='selected'
 <script>
   $(document).ready(
          function () {
-          let message = $("[name='message']").val().split(",")
+          let message = $("[name='message']").val().split("!")
   message.forEach((element,index) => {
     let content = element.split("?")[0]
     let speed = 1
@@ -102,8 +102,16 @@ obj.id='selected'
       message.children(".container_small_tip").eq(index).roll({ speed: speed });
       console.log(index)
   });
-         }
-  );
+  if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+        $('.qq').attr('href','mqqwpa://im/chat?version=1&src_type=web&web_src=oicqzone.com&uin='+$('.qq').attr('href'))
+    } else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+        $('.qq').attr('href','mqqwpa://im/chat?version=1&src_type=web&web_src=oicqzone.com&uin='+$('.qq').attr('href'))
+    } else { //pc
+        let href = 
+        $('.qq').attr('href','tencent://message/?uin='+$('.qq').attr('href'))
+        //console.log('tencent://message/?uin='+$('.qq').attr('href'))
+    };
+   });
   /*let message = $("[name='message']").val().split(",")
   message.forEach((element,index) => {
     let content = element.split("/")[0]
