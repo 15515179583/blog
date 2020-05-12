@@ -8,9 +8,8 @@
 .about ul ,ol{padding-left: 2em;margin-top: 5px;}
 .about ul li{list-style-type: circle; padding: 0; margin: 0; overflow: visible;}
 .about ol li{list-style-type: decimal; padding: 0; margin: 0; overflow: visible;}
-.about blockquote {background-color: #eaeeee;overflow-x: scroll;}
-.about blockquote p {padding: 0 1.5em; white-space:nowrap;overflow: visible;}
-
+.about blockquote {margin-top: 1em; background-color: #eaeeee;}
+.about blockquote p {padding: 0 1.5em 1em 1.5em;}
 .about code {margin: 0 0.2em;padding: 0 0.2em;word-break: normal;word-wrap: break-word;background-color: rgb(233, 224, 235);}
 
 .about pre  {padding:1em 0; margin-top: 0.5em;background-color: #e4e6f1;overflow-x: scroll;}

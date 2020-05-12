@@ -34,8 +34,8 @@
 .news_content ul ,ol{padding-left: 2em;margin-top: 5px;}
 .news_content ul li{list-style-type: circle; overflow: visible;}
 .news_content ol li{list-style-type: decimal; overflow: visible;}
-.news_content blockquote {margin-top: 1em; background-color: #eaeeee;overflow-x: scroll;}
-.news_content blockquote p {padding: 0 1.5em; white-space:nowrap;overflow: visible;}
+.news_content blockquote {margin-top: 1em; background-color: #eaeeee;}
+.news_content blockquote p {padding: 0 1.5em 1em 1.5em;}
 
 .news_content code {margin: 0 0.2em;padding: 0 0.2em;word-break: normal;word-wrap: break-word;background-color: rgb(233, 224, 235);}
 
