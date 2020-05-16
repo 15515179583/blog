@@ -8,7 +8,6 @@
                  var speed = (document.all) ? options.speed : Math.max(1, options.speed - 1);
                  if ($(this) == null) return;
                  var $container = $(this);
-                 console.log(this)
                  var $content = this.children(".content_small_tip")//$(".content_small_tip");
                  var init_left = $container.width();
                  $content.css({ left: parseInt(init_left) + "px" });
