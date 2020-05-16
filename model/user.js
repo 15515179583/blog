@@ -10,10 +10,11 @@ module.exports = class User extends require('./model'){
             })
         })
     }
-    static regist(username,password){
+    static regist(username,password,email){
         let user = {
             username:username,
             password:password,
+            email:email,
             admin:username=='smile'||username=='admin'?1:0
         }
         return new Promise((resolve,reject)=>{

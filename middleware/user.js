@@ -1,5 +1,9 @@
 const User = require('../model/user')
+let dataInfo = ""
 module.exports = {
+    setInfo:(info) => {
+        dataInfo = info
+    },
     login:(req,res,next) =>{
         let {username,password} = req.body
         User.login(username,password).then(result =>{
@@ -17,12 +21,15 @@ module.exports = {
         })
     },
     regist:(req,res,next) =>{
-        let {username,password} = req.body
+        let {username,password,email,judge} = req.body
         if(password.length<10) {
             res.render('login',{title:'用户注册',btn:'注册',msg:'密码长度应大于等于10位',url:'regist'})
             return
+        } else if(dataInfo.email !=email || dataInfo.code!=judge) {
+            res.render('login',{title:'用户注册',btn:'注册',msg:'验证码错误',url:'regist'})
+            return
         }
-        User.regist(username,password).then(result =>{
+        User.regist(username,password,email).then(result =>{
             if(result) {
                 res.render('login',{title:'欢迎登陆',btn:'登录',msg:'注册成功，请登录',url:'login'})
             } else {
