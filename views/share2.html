@@ -1,0 +1,28 @@
+<%- include('header.html')  -%> 
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<article>
+	<main class="loading">
+		<div class="content content--center">
+			<div class="grid grid--type-a">
+				<div class="grid__sizer"></div>
+				<% photos.forEach((photo,index) => { %>
+					<div class="grid__item">
+						<a class="grid__link" href="javascript:void(0)">
+							<img class="grid__img" src="<%= photo.photoUrl %>" oncontextmenu="return false" alt="Some image" />
+							<div class="picinfo">
+								<h3><%= photo.title %> </h3>
+								<span><%= photo.content %> </span> 
+							</div>
+						</a>
+					</div>
+					<% }) %>
+			</div>
+		</div>
+	</main>
+</article>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/masonry.pkgd.min.js"></script>
+<script src="js/anime.min.js"></script>
+<script src="js/main.js"></script>
+<%- include('footer.html')  -%> 

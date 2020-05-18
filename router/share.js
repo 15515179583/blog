@@ -12,4 +12,9 @@ shareApp.get('/',[photo.getAllList],(req,res) =>{
     res.render('share',{user:user,website:website,photos:photos})
 })
 
+shareApp.get('/2',[photo.getAllList],(req,res) =>{
+    let {user,website,photos} = req
+    res.render('share2',{user:user,website:website,photos:photos})
+})
+
 module.exports = shareApp
