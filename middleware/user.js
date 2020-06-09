@@ -108,4 +108,25 @@ module.exports = {
             //console.log(err)
         })
     },
+    useVip:(req,res,next) =>{
+        let {id} = req.query
+        User.useVip(id).then(results =>{
+            req.affectedRows = results
+            req.session.user.vipTimes -= 1
+            //console.log(req.session.user)
+            next()
+        }).catch(err =>{
+            next(err)
+        })
+    },
+    setTimes:(req,res,next) =>{
+        let {id,vipTimes} = req.query
+        User.setTimes(id,vipTimes).then(results =>{
+            req.affectedRows = results
+            next()
+        }).catch(err =>{
+            next(err)
+            //console.log(err)
+        })
+    },
 }

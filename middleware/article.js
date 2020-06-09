@@ -146,7 +146,7 @@ module.exports = {
         })
     },
     edit:(req,res,next) =>{
-        let {title,about,content,hot,category_id,thumbnail,id} = req.body
+        let {title,about,content,hot,category_id,thumbnail,id,vip} = req.body
         let article = {
             title:title,
             about:about,
@@ -155,7 +155,8 @@ module.exports = {
             category_id:category_id,
             //thumbnail: req.uploadUrl ? req.uploadUrl:thumbnail,
             thumbnail: req.uploadUrls ? req.uploadUrls[0]:thumbnail,
-            id:id
+            id:id,
+            vip:vip?1:0
         }
         Article.edit(article).then(results =>{
             req.affectedRows = results

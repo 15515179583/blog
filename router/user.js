@@ -65,4 +65,15 @@ userApp.get('/getcode',(req,res,next)=>{
     });
 })
 
+userApp.get('/usevip',user.useVip,(req,res)=>{
+    if(req.affectedRows > 0){
+        res.json({
+            code:1,
+        })
+    } else {
+        res.json({
+            code:0,
+        })
+    }
+})
 module.exports = userApp

@@ -90,9 +90,29 @@
         <strong>简介</strong>
         <%= article.about %>
       </div>
-      <div class="news_content">
-        <%- article.content %>
-        &nbsp; </div>
+      <% if (article.vip == 1) { %>
+        <% if (user && user.vipTimes > 0 ) { %>
+          <div class="news_content vip">
+            <%- article.content %>
+            &nbsp; </div>
+            <div class="vip-info">
+              <p>注意：<span style="color: red;">请勿刷新此页</span></p>
+              <p>当前剩余浏览时间：<span class="vip-time"><%= website.vipTime %> </span>s</p>
+              <p>当前用户剩余访问 VIP 文章次数：<span class="vip-times"><%= user.vipTimes %></span></p>
+            </div>
+            <script src="js/vip.js"></script>
+        <% } else if(user && user.admin ==1) { %>
+          <div class="news_content">
+            <%- article.content %>
+            &nbsp; </div>
+        <% } else  { %>
+          <h3 style="text-align: center;">无权限查看，请联系站长或本站管理员</h3>
+        <% } %>
+      <% } else { %>
+        <div class="news_content">
+          <%- article.content %>
+          &nbsp; </div>
+      <% } %> 
     </div>
     <div class="share">
       <p class="diggit">

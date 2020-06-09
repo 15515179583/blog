@@ -23,7 +23,7 @@ app.use(express.static('static'))
 app.use(express.urlencoded({extended:true}))
 app.use(session({
     keys:['secret'],
-    maxAge: 1000*60*30
+    maxAge: 1000*60*60
 }))
 // app.use('/',require('./router/index'))
 // app.use('index',require('./router/index'))

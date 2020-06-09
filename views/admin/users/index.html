@@ -20,6 +20,7 @@
                                         <tr>
                                             <th>名称</th>
                                             <th>权限</th>
+                                            <th>vip次数</th>
                                             <th>操作</th>
                                         </tr>
                                     </thead>
@@ -36,6 +37,9 @@
                                                         <input type="checkbox" class="custom-control-input" id="admin<%= use.id %>" value="<%= use.id %> " <%= use.admin?'checked':'' %> onchange="setAdmin(this.value,this.checked)">
                                                         <label class="custom-control-label" for="admin<%= use.id %>"></label>
                                                     </div>
+                                                </td>
+                                                <td title="双击修改"><input type="text" name="use<%= use.id %>" value="<%= use.vipTimes %>"
+                                                    class="form-control text-center bg-white border-0 dbcedit" onchange="changeTimes(<%= use.id %>,this.value)">
                                                 </td>
                                                 <td>
                                                     <button class="btn btn-link text-danger" onclick="del(<%= use.id %>)"><i class="iconfont icon-delete"></i>删除</button>
@@ -69,7 +73,18 @@
                 }
             })
         }
-
+        function changeTimes(id,times){
+            $.get('/admin/users/setTimes',{id:id,vipTimes:times},function(res){
+                if (res.code == 1) {
+                    showToasts('成功','修改vip次数成功')
+                    setTimeout(() => {
+                            location.reload()
+                    }, 2000);
+                } else {
+                    showToasts('失败','修改vip次数失败')
+                }
+            })
+        }
         function del(id){
             if(confirm('确认删除?')){
                 $.getJSON('/admin/users/del',{id:id},function(res){
@@ -84,6 +99,7 @@
                 })
             }
         }
+        
     </script>
 </body>
 

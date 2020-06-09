@@ -97,7 +97,6 @@
                     showToasts('失败','修改友链链接失败')
                 }
             })
-
         }
         function setDisplay(id,display){
             $.get('/admin/links/setdisplay',{id:id,display:display?1:0},function(res){

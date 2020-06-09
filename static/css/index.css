@@ -53,7 +53,7 @@ a.curPage { color: #19585d; font-weight: bold; }
 .picbox ul li i { margin: 10px; height: auto; overflow: hidden; display: block; }
 .picbox ul li img { width: 100%; }
 .picinfo h3 { border-bottom: #ccc 1px solid; padding: 20px 0; margin: 0 20px }
-.picinfo span { padding: 20px; display: block; color: #666 }
+.picinfo span { padding: 20px; display: block; color: #666; word-wrap: break-word;}
 .picbox ul li a:hover{ color:#19585d}
 /*add*/
 
@@ -132,4 +132,9 @@ a.curPage { color: #19585d; font-weight: bold; }
     display: block;
     float: left;
     width: fit-content;
+}
+.r_box li .icon-VIP {
+    margin-left: 0;
+    margin-right: 5px;
+    color: rgb(238, 194, 51);
 }

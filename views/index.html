@@ -38,7 +38,10 @@
   <div class="r_box">
     <% page.list.forEach(article => { %>
       <li><i><a href="/article/<%= article.id %>"><img src="<%= article.thumbnail %> "></a></i>
-        <h3><a href="/article/<%= article.id %>"><%= article.title %></a></h3>
+        <h3><a href="/article/<%= article.id %>"><%= article.title %></a> 
+          <% if (article.vip == 1) { %>
+            <i class="iconfont icon-VIP"></i>
+          <%  } %> </h3>
         <div class="blog_info">
           <p class="time"><%= article.time %></p>
           <p class="hit"><i class="iconfont icon-liulan"></i><%= article.hits %></p>

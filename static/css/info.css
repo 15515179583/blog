@@ -44,3 +44,25 @@
 .news_content blockquote p:nth-of-type(1) {padding-top: 1em;}
 .table table{width:100%; margin-top: 1.5em; text-align: center;border-collapse:collapse;line-height: 30px;}
 .table table td, .table table th {border: 3px solid #EBEBEF;}
+.infosbox .vip-info {
+    position: fixed;
+    left: 10px;
+    bottom: 30px;
+    width: 300px;
+    text-align: center;
+    background-color: rgb(169, 227, 230);
+}
+.infosbox .vip-info .vip-time {
+    color: rgb(223, 90, 57);
+}
+.infosbox .vip-info .vip-times {
+    color: rgb(223, 79, 223);
+}
+
+.infosbox .vip {
+    -moz-user-select: none; /*火狐*/ 
+    -webkit-user-select: none; /*webkit浏览器*/ 
+    -ms-user-select: none; /*IE10*/ 
+    -khtml-user-select: none; /*早期浏览器*/ 
+    user-select: none; 
+}

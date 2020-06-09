@@ -55,6 +55,16 @@
                                         </div>
                                     </div>
                                     <div class="form-row mt-3">
+                                        <label for="content" class="col-2 text-center col-form-label">vip：</label>
+                                        <div class="col-8 col-form-label">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="vip" name='vip'
+                                                    value='<%= article.vip %>' <%= article.vip == 1?'checked':'' %> >
+                                                <label class="custom-control-label" for="vip"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row mt-3">
                                         <label for="content" class="col-2 text-center col-form-label">缩略图：</label>
                                         <div class="col-8">
                                             <input type="hidden" name="thumbnail" value="<%= article.thumbnail %>">

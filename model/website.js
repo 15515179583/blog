@@ -12,9 +12,9 @@ module.exports = class Website extends require('./model'){
     }
     static edit(website){
         return new Promise((resolve,reject)=>{
-            let sql = 'UPDATE website SET name = ?, logo = ?, keywords = ?, beian = ?, message = ?, user = ?, wx = ?, about_content = ?, about_img = ?,github = ?, csdn = ?, qq = ? WHERE id = 1'
+            let sql = 'UPDATE website SET name = ?, logo = ?, keywords = ?, beian = ?, message = ?, user = ?, wx = ?, about_content = ?, about_img = ?,github = ?, csdn = ?, qq = ?, vipTime = ? WHERE id = 1'
             
-            this.query(sql,[website.name,website.logo,website.keywords,website.beian,website.message,website.user,website.wx,website.about_content,website.about_img,website.github,website.csdn,website.qq]).then(results=>{
+            this.query(sql,[website.name,website.logo,website.keywords,website.beian,website.message,website.user,website.wx,website.about_content,website.about_img,website.github,website.csdn,website.qq,website.vipTime]).then(results=>{
                 resolve(results.affectedRows)
             }).catch(err =>{
                 console.log(`网站信息编辑失败：${err.message}`)

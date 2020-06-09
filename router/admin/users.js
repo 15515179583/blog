@@ -33,4 +33,17 @@ usersApp.get('/setadmin',users.setAdmin,(req,res) =>{
         })
     }
 })
+usersApp.get('/setTimes',users.setTimes,(req,res) =>{
+    if(req.affectedRows > 0){
+        res.json({
+            code:1,
+            msg:'设置成功'
+        })
+    } else {
+        res.json({
+            code:0,
+            msg:'设置失败'
+        })
+    }
+})
 module.exports = usersApp

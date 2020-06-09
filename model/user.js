@@ -1,7 +1,7 @@
 module.exports = class User extends require('./model'){
     static login(username,password){
         return new Promise((resolve,reject)=>{
-            let sql = 'SELECT id, username, admin, user_img, link FROM `user` WHERE username = ? AND `password` = ?'
+            let sql = 'SELECT id, username, admin, user_img, link, vipTimes FROM `user` WHERE username = ? AND `password` = ?'
             this.query(sql,[username,password]).then(results=>{
                 resolve(results[0])
             }).catch(err =>{
@@ -51,7 +51,7 @@ module.exports = class User extends require('./model'){
     }
     static getList(){
         return new Promise((resolve,reject)=>{
-            let sql = 'SELECT id,username,admin FROM user ORDER BY id'
+            let sql = 'SELECT id,username,admin,vipTimes FROM user ORDER BY id'
             this.query(sql).then(results=>{
                 resolve(results)
             }).catch(err =>{
@@ -91,6 +91,30 @@ module.exports = class User extends require('./model'){
                 resolve(results.affectedRows)
             }).catch(err =>{
                 console.log(`链接申请失败：${err.message}`)
+                reject(err)
+            })
+        })
+    }
+    static useVip(id){
+        return new Promise((resolve,reject)=>{
+            let sql = 'UPDATE user SET vipTimes = vipTimes-1 WHERE id = ?'
+            
+            this.query(sql,id).then(results=>{
+                resolve(results.affectedRows)
+            }).catch(err =>{
+                console.log(`vip文章浏览失败：${err.message}`)
+                reject(err)
+            })
+        })
+    }
+    static setTimes(id,times){
+        return new Promise((resolve,reject)=>{
+            let sql = 'UPDATE user SET vipTimes = ? WHERE id = ?'
+            
+            this.query(sql,[times,id]).then(results=>{
+                resolve(results.affectedRows)
+            }).catch(err =>{
+                console.log(`vip次数设置失败：${err.message}`)
                 reject(err)
             })
         })

@@ -10,7 +10,7 @@ module.exports = {
         })
     },
     edit: (req,res,next) => {
-        let {name,logo,keywords,beian,user,wx,message,about_content,about_img,qq,csdn,github} = req.body
+        let {name,logo,keywords,beian,user,wx,message,about_content,about_img,qq,csdn,github,vipTime} = req.body
 
         let website = {
             name:name,
@@ -24,7 +24,8 @@ module.exports = {
             wx: req.uploadUrls ? req.uploadUrls.length>2?req.uploadUrls[2]:wx:wx,
             csdn:csdn,
             github:github,
-            qq:qq
+            qq:qq,
+            vipTime:vipTime
         }
         Website.edit(website).then(results =>{
             req.affectedRows = results

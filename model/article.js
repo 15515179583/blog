@@ -169,9 +169,9 @@ module.exports = class Article extends require('./model'){
     }
     static edit(article){
         return new Promise((resolve,reject)=>{
-            let sql = 'UPDATE artcle SET title = ?, category_id = ?, about = ?, content = ?, hot = ?, thumbnail = ? WHERE id = ?'
+            let sql = 'UPDATE artcle SET title = ?, category_id = ?, about = ?, content = ?, hot = ?, thumbnail = ?, vip = ? WHERE id = ?'
             
-            this.query(sql,[article.title,article.category_id,article.about,article.content,article.hot,article.thumbnail,article.id]).then(results=>{
+            this.query(sql,[article.title,article.category_id,article.about,article.content,article.hot,article.thumbnail,article.vip,article.id,]).then(results=>{
                 resolve(results.affectedRows)
             }).catch(err =>{
                 console.log(`文章编辑失败：${err.message}`)
