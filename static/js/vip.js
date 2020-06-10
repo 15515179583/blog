@@ -63,6 +63,10 @@ function keyDown(e){
     if(currKey == 79 && (e.ctrlKey||e.metaKey)){
         window.event.returnValue = false;
         e.preventDefault();
+    }
+    if(currKey == 83 && (e.ctrlKey||e.metaKey)){
+        window.event.returnValue = false;
+        e.preventDefault();
 	}
 }
 document.onkeydown = keyDown;
