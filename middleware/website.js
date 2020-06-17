@@ -10,7 +10,7 @@ module.exports = {
         })
     },
     edit: (req,res,next) => {
-        let {name,logo,keywords,beian,user,wx,message,about_content,about_img,qq,csdn,github,vipTime} = req.body
+        let {name,logo,keywords,beian,user,wx,message,about_content,about_img,qq,csdn,github,vipTime,porfile} = req.body
 
         let website = {
             name:name,
@@ -25,7 +25,8 @@ module.exports = {
             csdn:csdn,
             github:github,
             qq:qq,
-            vipTime:vipTime
+            vipTime:vipTime,
+            porfile:porfile
         }
         Website.edit(website).then(results =>{
             req.affectedRows = results
