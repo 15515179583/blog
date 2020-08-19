@@ -3,11 +3,11 @@ const nodemailer  = require('nodemailer')
 const user = require('../middleware/user')
 var mailTransport = nodemailer.createTransport({
     service: 'qq',
-    host : 'smile6666.com',
+    host : '****',//主机地址或域名
     secureConnection: true, // 使用SSL方式（安全方式，防止被窃取信息）
     auth : {
-        user : '2230550672@qq.com',
-        pass : 'qrxnvworuqjveaac'
+        user : '****',//邮箱用户
+        pass : '****'//密钥
     },
 });
 const userApp = express()
@@ -36,14 +36,14 @@ userApp.get('/getcode',(req,res,next)=>{
         code += Math.floor(Math.random()*10);
     }
     var options = {
-        from: '"smile小站" <2230550672@qq.com>',
-        to: `"smile小站用户" <${req.query.email}>`,
+        from: '"smile小站" <2230550672@qq.com>',//发件人
+        to: `"smile小站用户" <${req.query.email}>`,//收件人
         subject: '【smile小站验证码】',
         text: '【smile小站验证码】',
         html: `<h1>你好，这是一封来自smile小站的邮件！</h1>
             <p>smile小站欢迎您的到来！</p>
             <p>您的验证码为：${code} </p>
-            <p>站点地址：<a href="http://smile6666.com/">http://smile6666.com/</a></p>
+            <p>站点地址：<a href="http://smilestation.info/">http://smilestation.info/</a></p>
         `
     };
     
