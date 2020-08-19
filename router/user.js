@@ -43,7 +43,7 @@ userApp.get('/getcode',(req,res,next)=>{
         html: `<h1>你好，这是一封来自smile小站的邮件！</h1>
             <p>smile小站欢迎您的到来！</p>
             <p>您的验证码为：${code} </p>
-            <p>站点地址：<a href="http://smile6666.com/">http://smile6666.com/</a></p>
+            <p>站点地址：<a href="http://smilestation.info/">http://smilestation.info/</a></p>
         `
     };
     
